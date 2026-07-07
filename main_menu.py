@@ -5,12 +5,13 @@ from mark_task_completed import mark_task as mt
 from delete_task import delete_task as dt
 from save_tasks import save_tasks as st
 from set_priority import set_priority as sp
+from export_json import export_json as ej
 
 def main():
     tasks = load_tasks()
     while True:
         print("\n\n______________________________________________________Task Manager____________________________________________________\n\n")
-        print("1. Add Task\n2. View Tasks\n3. Mark Task As Complete\n4. Delete Task\n5. Set Task Priority\n6. Exit")
+        print("1. Add Task\n2. View Tasks\n3. Mark Task As Complete\n4. Delete Task\n5. Set Task Priority\n6. Export JSON\n7. Exit")
         choice = int(input("Please Enter above Option(1 -> 5) : "))
 
         if choice == 1:
@@ -23,7 +24,9 @@ def main():
             dt(tasks)
         elif choice ==5:
             sp(tasks)
-        elif choice == 6:
+        elif choice ==6:
+            ej(tasks)
+        elif choice == 7:
             st(tasks)
             print("GoodBye")
             break

@@ -7,6 +7,11 @@ def load_tasks():
     if os.path.exists(FILENAME):
         with open(FILENAME, "r") as file:
             for line in file:
-                task_id, title, status = line.strip().split(" | ")
-                tasks[(task_id)] = {"title": title, "status": status}
+                parts = line.strip().split(" | ")
+                if len(parts) >= 3:
+                    task_id = parts[0]
+                    title = parts[1]
+                    status = parts[2]
+                    priority = parts[3] if len(parts) > 3 else "N/A"
+                    tasks[int(task_id)] = {"title": title, "status": status, "priority": priority}
     return tasks
