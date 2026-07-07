@@ -1,5 +1,6 @@
 import argparse
 import add_task as at
+import save_tasks as st
 
 # Step 2: Parser Create Karna
 parser = argparse.ArgumentParser(description="Command Line Task Manager")
@@ -23,4 +24,40 @@ args = parser.parse_args()
 #sstep 5 handle arguments
 
 if args.add:
-    at()
+    tasks = at.add_task(args.add)
+    st.save_tasks(tasks)
+    print(f"Task {args.add} added successfully")
+
+if args.delete:
+    tasks = st.load_tasks()
+    tasks = [task for task in tasks if task["id"] != args.delete]
+    st.save_tasks(tasks)
+    print(f"Task {args.delete} deleted successfully")
+
+if args.export_json:
+    tasks = st.load_tasks()
+    st.save_tasks(tasks, args.export_json)
+    print(f"Tasks exported to {args.export_json}")
+
+if args.mark_task:
+    tasks = st.load_tasks()
+    for task in tasks:
+        if task["id"] == args.mark_task:
+            task["completed"] = True
+            break
+    st.save_tasks(tasks)
+    print(f"Task {args.mark_task} marked as completed")
+
+if args.set_priority:
+    tasks = st.load_tasks()
+    for task in tasks:
+        if task["id"] == int(args.set_priority[0]):
+            task["priority"] = args.set_priority[1]
+            break
+    st.save_tasks(tasks)
+    print(f"Task {args.set_priority[0]} priority set to {args.set_priority[1]}")
+
+if args.view:
+    tasks = st.load_tasks()
+    for task in tasks:
+        print(task)
