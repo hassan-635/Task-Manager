@@ -4,4 +4,4 @@ def view_tasks(tasks):
         print("No task Available...")
     else:
         for task_id, task in tasks:
-            print(f"[{task_id}] -> {task["title"]} -> {task["status"]}")
+            print(f"[{task_id}] -> {task['title']} -> {task['status']}")
