@@ -14,4 +14,7 @@ parser.add_argument("--set-priority", nargs=2, help="Set task priority")
 parser.add_argument("--view",action="store_true" ,help="View tasks") # boolean flag
 
 
-# step 4
+# step 4 parse the arguments
+# it reads command line and store arguments in args object
+
+args = parser.parse_args()
