@@ -4,12 +4,13 @@ from view_tasks import view_tasks as vt
 from mark_task_completed import mark_task as mt
 from delete_task import delete_task as dt
 from save_tasks import save_tasks as st
+from set_priority import set_priority as sp
 
 def main():
     tasks = load_tasks()
     while True:
         print("\n\n______________________________________________________Task Manager____________________________________________________\n\n")
-        print("1. Add Task\n2. View Tasks\n3. Mark Task As Complete\n4. Delete Task\n5. Exit")
+        print("1. Add Task\n2. View Tasks\n3. Mark Task As Complete\n4. Delete Task\n5. Set Task Priority\n6. Exit")
         choice = int(input("Please Enter above Option(1 -> 5) : "))
 
         if choice == 1:
@@ -20,7 +21,9 @@ def main():
             mt(tasks)
         elif choice == 4:
             dt(tasks)
-        elif choice == 5:
+        elif choice ==5:
+            sp(tasks)
+        elif choice == 6:
             st(tasks)
             print("GoodBye")
             break
