@@ -1,2 +1,2 @@
-1 | milk | Completed
-2 | chocolate | incomplete
+1 | buy milk | Completed | N/A
+3 | do homework | incomplete | h
