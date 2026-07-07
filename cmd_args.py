@@ -1,4 +1,5 @@
 import argparse
+import add_task as at
 
 # Step 2: Parser Create Karna
 parser = argparse.ArgumentParser(description="Command Line Task Manager")
@@ -18,3 +19,8 @@ parser.add_argument("--view",action="store_true" ,help="View tasks") # boolean f
 # it reads command line and store arguments in args object
 
 args = parser.parse_args()
+
+#sstep 5 handle arguments
+
+if args.add:
+    at()
