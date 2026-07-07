@@ -10,7 +10,7 @@ def main():
     while True:
         print("\n\n______________________________________________________Task Manager____________________________________________________\n\n")
         print("1. Add Task\n2. View Tasks\n3. Mark Task As Complete\n4. Delete Task\n5. Exit")
-        choice = int(input("Please Enter above Option(1 -> 5)"))
+        choice = int(input("Please Enter above Option(1 -> 5) : "))
 
         if choice == 1:
             at(tasks)
