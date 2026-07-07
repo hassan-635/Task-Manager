@@ -9,6 +9,8 @@ A simple and elegant command-line Task Manager application built in Python. Mana
 - **Mark Complete** - Mark tasks as completed when done
 - **Delete Task** - Remove tasks you no longer need
 - **Set Priority** - Assign high (H) or low (L) priority to tasks
+- **CLI Mode** - Fast command-line operations for power users
+- **Export JSON** - Export tasks to JSON format
 - **Persistent Storage** - Tasks are saved to `tasks.txt` and loaded automatically
 
 ## 🚀 Getting Started
@@ -70,11 +72,48 @@ Once you run the application, you'll see a menu with the following options:
 - All tasks will be saved to `tasks.txt`
 - The application will close
 
+## ⚡ CLI Mode
+
+For fast operations, use the command-line interface:
+
+```bash
+# Add a task
+python cmd_args.py --add "Buy groceries"
+
+# View all tasks
+python cmd_args.py --view
+
+# Mark task as completed
+python cmd_args.py --mark-task 1
+
+# Delete a task
+python cmd_args.py --delete 1
+
+# Set task priority
+python cmd_args.py --set-priority 1 H
+
+# Export tasks to JSON
+python cmd_args.py --export-json tasks.json
+
+# Show help
+python cmd_args.py --help
+```
+
+### CLI Arguments
+
+- `--add <title>` - Add a new task with the given title
+- `--view` - Display all tasks
+- `--mark-task <id>` - Mark task as completed by ID
+- `--delete <id>` - Delete task by ID
+- `--set-priority <id> <priority>` - Set priority (H/L) for task
+- `--export-json <filename>` - Export tasks to JSON file
+
 ## 📁 Project Structure
 
 ```
 Task Manager/
-├── main_menu.py           # Main application menu
+├── main_menu.py           # Main application menu (interactive mode)
+├── cmd_args.py            # Command-line interface (CLI mode)
 ├── add_task.py            # Add new tasks
 ├── view_tasks.py          # View all tasks
 ├── mark_task_completed.py # Mark tasks as complete
